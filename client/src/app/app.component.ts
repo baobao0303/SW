@@ -18,7 +18,7 @@ import { NotificationPermissionDialogComponent } from './notification-permission
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
-  title = 'SW-DEMO';
+  title = 'angular-sw';
 
   constructor(
     swUpdate: SwUpdate,
@@ -37,16 +37,13 @@ export class AppComponent {
         // Handle new version updates (if any)
       });
 
-    // Lắng nghe các thông báo từ server
+    // Lắng nghe các thông báo Push
     swPush.messages.subscribe((message) => {
       console.log('Push message:', message);
     });
 
     // Kiểm tra và yêu cầu quyền thông báo
-    if (
-      Notification.permission === 'default' &&
-      !localStorage.getItem('notificationPermissionGiven')
-    ) {
+    if (Notification.permission === 'default') {
       console.log('Yêu cầu quyền thông báo...');
       this.showNotificationDialog(swPush, http);
     } else if (Notification.permission === 'granted') {
@@ -66,8 +63,6 @@ export class AppComponent {
 
         Notification.requestPermission().then((permission) => {
           if (permission === 'granted') {
-            // Lưu trạng thái đồng ý vào localStorage
-            localStorage.setItem('notificationPermissionGiven', 'true');
             this.subscribeToPushNotifications(swPush, http);
           } else {
             console.log('Người dùng từ chối quyền thông báo.');
