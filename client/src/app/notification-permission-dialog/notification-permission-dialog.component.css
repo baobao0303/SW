@@ -1,0 +1,58 @@
+.container {
+  display: flex;
+  gap: 12px;
+  padding: 0px 12px 12px 12px;
+  justify-content: center;
+  align-items: center;
+}
+.dialog-logo {
+  width: 100px;
+  height: 100px;
+  vertical-align: middle;
+}
+.dialog-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  /* margin-top: 10px; */
+}
+h2 {
+  padding-top: 12px;
+  font-size: 1rem;
+  max-width: 350px;
+  line-height: 1.5;
+  letter-spacing: 1.2;
+  word-wrap: break-word;
+  white-space: normal;
+  margin: 0 !important;
+}
+.btn-skip {
+  border: none !important;
+  cursor: pointer;
+  width: 100px;
+  height: 40px;
+  border-radius: 15px;
+  font-size: 1rem;
+  background-color: #dee2e6 !important;
+  color: black;
+  transition: all 0.3s;
+}
+.btn-skip:hover {
+  background-color: #868e96 !important;
+  color: white;
+}
+
+.btn-allow {
+  border: none !important;
+  cursor: pointer;
+  width: 100px;
+  height: 40px;
+  border-radius: 15px;
+  font-size: 1rem;
+  background-color: #e03131;
+  color: white;
+  transition: all 0.3s;
+}
+.btn-allow:hover {
+  background-color: #fa5252;
+}
